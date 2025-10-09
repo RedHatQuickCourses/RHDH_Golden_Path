@@ -64,6 +64,7 @@ spec:
         - projectName
         - clusterid
         - apikey
+        - owner
     - title: Provide Information about deployment targets 
       properties:
         namespace:
@@ -117,7 +118,7 @@ spec:
           sourceControl: github.com
           backendport: ${{ parameters.backendport }}
           frontendport: ${{ parameters.frontendport }}
-          owner: ${{ parameters.orgName }}
+          owner: ${{ parameters.owner }}
           applicationType: service
           description: ${{ parameters.description }}
           lifecycle: experimental
