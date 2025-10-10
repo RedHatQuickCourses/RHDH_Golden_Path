@@ -56,6 +56,11 @@ spec:
           title: Project Name/Tag
           type: string
           default: springboot-demo
+        owner:
+          title: Owner (Team or User)
+          type: string
+          description: The Backstage entity owner in 'kind:default/name' format (e.g., group:default/team-a)
+          ui:autofill: user:$$user.entity.namespace/$$user.entity.name
       required:
         - orgName
         - repoName
@@ -64,6 +69,7 @@ spec:
         - projectName
         - clusterid
         - apikey
+        - owner
     - title: Provide Information about deployment targets 
       properties:
         namespace:
@@ -117,7 +123,7 @@ spec:
           sourceControl: github.com
           backendport: ${{ parameters.backendport }}
           frontendport: ${{ parameters.frontendport }}
-          owner: ${{ parameters.orgName }}
+          owner: ${{ parameters.owner }}
           applicationType: service
           description: ${{ parameters.description }}
           lifecycle: experimental
